@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo Fech in Js</title>
+    <style>
+        table{
+            width: 80%;
+            margin: auto;
+            padding: 10px;
+            background-color: white;
+            border: 2px solid black;
+            color: red;
+        }
+    </style>
+    
+</head>
+<body>
+    <table >
+        <thead>
+            <tr >
+                <th>Sr. No</th>
+                <th>Title</th>
+                <th>Images</th>
+                <th>qrCode</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Rating</th>
+                <th>Stock</th>
+            </tr>
+        </thead>
+        <tbody id="data"></tbody>
+    </table>
+    <script>
+        const ele = document.getElementById("data");
+        const URL = "https://dummyjson.com/products";
+        async function loadProducts(){
+            try{
+                const res = await fetch(URL);
+                const data = await res.json();
+                console.log("data:", data.products);
+                let row = "";
+
+data.products.forEach((i, index) => {
+  row += `
+    <tr>
+      <td>${index + 1}</td>
+      <td>${i.title}</td>
+      <td>
+        <img src="${i.images[0]}" alt="${i.title}" width="100">
+      </td>
+      <td>
+        <img src="${i.meta.qrCode}" alt="QR code" width="100">
+      </td>
+      <td>${i.category}</td>
+      <td>₹${i.price}</td>
+      <td>${i.rating}</td>
+      <td>${i.stock}</td>
+    </tr>
+  `;
+});
+
+ele.innerHTML = row;
+            }catch(err){
+                console.log(err);
+            }
+        }
+        loadProducts();
+    </script>
+</body>
+</html>
