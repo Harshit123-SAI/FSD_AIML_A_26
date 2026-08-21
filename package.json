@@ -1,0 +1,23 @@
+{
+  "name": "fsd_aiml_a_26",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/Harshit123-SAI/FSD_AIML_A_26#readme",
+  "bugs": {
+    "url": "https://github.com/Harshit123-SAI/FSD_AIML_A_26/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Harshit123-SAI/FSD_AIML_A_26.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "react": "^19.2.8"
+  }
+}
